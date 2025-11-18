@@ -1,12 +1,6 @@
-import asyncio
+def decision(arg, flag):
 
-async def f():
-    await asyncio.sleep(0)
-    return 1
+    assert flag in ["A", "B", "C"]
+    print(arg)
 
-async def g():
-    task = asyncio.create_task(f())
-    await asyncio.sleep(0)
-    return task.result()
-
-print(asyncio.run(g()))
+decision("x", "D")
