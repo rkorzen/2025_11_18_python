@@ -1,8 +1,17 @@
-
 operations = {}
 
+
 def register(op):
-    ...
+    def dekorator(func):
+        # @wraps(func)
+        # def wrapper(*args, **kwargs):
+        #     r = func(*args, **kwargs)
+        #     return r
+
+        operations[op] = func
+        return func
+
+    return dekorator
 
 
 @register("+")
@@ -18,6 +27,7 @@ def add(a: int, b: int, *args: int) -> int:
     return a + b + sum(args)
 
 
+@register("-")
 def sub(a: int, b: int) -> int:
     """
     Oblicza różnicę dwóch liczb.
@@ -29,6 +39,7 @@ def sub(a: int, b: int) -> int:
     return a - b
 
 
+@register("*")
 def mul(a: int, b: int, *args: int) -> int:
     """
     Oblicza iloczyn podanych liczb.
@@ -44,6 +55,7 @@ def mul(a: int, b: int, *args: int) -> int:
     return result
 
 
+@register("/")
 def div(a: int, b: int) -> None:
     """
     Oblicza iloraz dwóch liczb.
@@ -55,6 +67,11 @@ def div(a: int, b: int) -> None:
     if b == 0:
         return None
     return a / b
+
+
+@register("**")
+def pow(a: int, b: int) -> int:
+    return a**b
 
 
 def get_additonal_data(op: str) -> list[int]:
@@ -80,18 +97,13 @@ def get_data_from_console() -> tuple[str, int, int, list[int]]:
 
     :return: Krotka zawierająca symbol operacji, dwa pierwsze argumenty oraz listę dodatkowych argumentów.
     """
-    op = input("Podaj rodzaj operacji (+-/*): ")
+
+    available_ops = list(operations.keys())
+    op = input(f"Podaj rodzaj operacji ({available_ops}): ")
     a = int(input("Podaj arg 1: "))
-    b = int(input("Podaj arg 1: "))
+    b = int(input("Podaj arg 2: "))
     args = get_additonal_data(op)
     return op, a, b, args
-
-
-
-
-def register(func, symbol):
-    operations[symbol] = func
-    return func
 
 
 def make_additional_info(op: str, args: list[int]) -> str:
@@ -127,15 +139,8 @@ def main() -> None:
     """
     op, a, b, args = get_data_from_console()
     result = calculate(op, a, b, *args)
-    print(f"Wynik operacji {a} + {b}{make_additional_info(op, args)} = {result}")
+    print(f"Wynik operacji {a} {op} {b}{make_additional_info(op, args)} = {result}")
 
 
-register(add, "+")
-register(sub, "-")
-register(mul, "*")
-register(div, "/")
-
-print(dir())
-# print(__name__)
 if __name__ == "__main__":
     main()
