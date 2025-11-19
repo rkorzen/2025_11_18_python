@@ -40,4 +40,4 @@ git commit -m "komunikat" - zatwierdzanie zmian
 git push origin  main- push do githuba
 
 
-10:50
+1
