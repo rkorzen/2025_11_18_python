@@ -1,0 +1,1 @@
+Simple raport for git auto commit example
