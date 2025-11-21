@@ -1,3 +1,5 @@
+# pip install GitPython
+
 from git import Repo
 from datetime import datetime
 from pathlib import Path

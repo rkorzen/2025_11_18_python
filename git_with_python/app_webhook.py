@@ -1,3 +1,9 @@
+"""
+pip install fastapi, uvicorn
+
+"""
+
+
 from fastapi import FastAPI, Request
 
 app = FastAPI()
