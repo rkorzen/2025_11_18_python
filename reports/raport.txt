@@ -1,1 +1,15 @@
 Simple raport for git auto commit example
+
+
+pawel.makol@atos.net
+mikolaj.chachowski@atos.net
+pawel.duda.external@atos.net
+przemyslaw.gubernat@atos.net
+adrian.bielinski@atos.net
+michal.kwiatkowski@atos.net
+SYLWESTER.MACHNIO@ATOS.NET
+marcin.michalowski@atos.net
+lukasz.piorkowski@atos.net
+sebastian.podgorski@atos.net
+konrad.wierzbowski@atos.net
+lukasz.zboracki@atos.net
